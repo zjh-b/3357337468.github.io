@@ -1,0 +1,481 @@
+\documentclass[12pt,letterpaper]{ctexart}
+
+% ===== 数学建模论文模板 =====
+% 基于实际竞赛论文格式解析
+% 适用于国赛、美赛(MCM/ICM)、华中杯等
+
+% ---------- 页面设置 ----------
+% 页边距：左3.17cm 右2.75cm 上下约2.6cm
+\usepackage[top=2.6cm,bottom=2.2cm,left=3.17cm,right=2.75cm]{geometry}
+
+% ---------- 数学与公式 ----------
+\usepackage{amsmath,amssymb,amsthm}
+
+% ---------- 图表 ----------
+\usepackage{graphicx,subfig}
+\usepackage{booktabs,multirow,array,longtable}
+\usepackage{float}
+
+% ---------- 算法伪代码 ----------
+\usepackage{algorithm,algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
+
+% ---------- 引用与链接 ----------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=black
+}
+
+% ---------- 列表 ----------
+\usepackage{enumitem}
+
+% ---------- 图表标题 ----------
+\usepackage{caption}
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    labelsep=quad,
+    justification=centering
+}
+
+% ---------- 页眉页脚 ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\songti\zihao{5}\leftmark}     % 页眉：居中，宋体五号，显示当前节名
+\fancyfoot[C]{\thepage}                        % 页脚：居中页码
+\renewcommand{\headrulewidth}{0.4pt}           % 页眉线宽度
+\setlength{\headheight}{14pt}
+
+% ---------- 首行缩进 ----------
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}                    % 首行缩进2个汉字
+
+% ---------- 行距 ----------
+\linespread{1.3}                               % 1.3倍行距
+
+% ---------- 标题格式设置 ----------
+% 各级标题使用 ctex 默认，通过 \zihao 控制字号：
+% 三号=16pt, 四号=14pt, 小四=12pt
+
+% 一级标题：四号(14pt)黑体居中
+\CTEXsetup[name={,、},number={\chinese{section}},format={\heiti\zihao{4}\centering},aftername={}]{section}
+
+% 二级标题：小四(12pt)黑体左对齐
+\CTEXsetup[name={,},number={\arabic{subsection}},format={\heiti\zihao{-4}\raggedright},aftername={}]{subsection}
+
+% 三级标题：小四(12pt)黑体左对齐
+\CTEXsetup[name={,},number={\arabic{subsection}.\arabic{subsubsection}},format={\heiti\zihao{-4}\raggedright},aftername={}]{subsubsection}
+
+% 图表编号：按节编号（如 表5-1、图5-1）
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% 重定义图表标题标签为中文
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\algorithmcfname}{算法}
+
+\begin{document}
+
+% ==========================================
+% 首页：标题 + 摘要 + 关键词
+% ==========================================
+
+% --- 标题：16pt(三号)黑体加粗居中 ---
+\begin{center}
+{\heiti\zihao{3}\textbf{【在此处填写论文标题】}}
+
+\vspace{1cm}
+
+% --- 摘要标签：16pt(三号)黑体居中 ---
+{\heiti\zihao{3}摘\ \ 要}
+\end{center}
+
+\vspace{0.5cm}
+
+% --- 摘要正文：14pt(四号)宋体，首行缩进2字符 ---
+% 摘要要求：300-500字，包含问题背景 + 方法 + 结果 + 创新点
+{
+\songti\zihao{4}
+【在此处填写摘要正文。摘要应包含以下四要素：
+(1) 问题背景：一句话说明问题的实际意义；
+(2) 主要方法：简述本文采用的建模方法和算法；
+(3) 关键结果：给出主要的数值结果和发现；
+(4) 创新点：本文工作的贡献或创新之处。】
+
+\vspace{1cm}
+
+% --- 关键词：14pt(四号)，"关键词："加粗 ---
+\noindent{\textbf{关键词：}}【关键词1；关键词2；关键词3；关键词4；关键词5】
+}
+
+\newpage
+
+% ==========================================
+% 目录页
+% ==========================================
+{
+\pagestyle{empty}
+\tableofcontents
+}
+\newpage
+
+% ==========================================
+% 正文开始，重置页码
+% ==========================================
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+% ==========================================
+% 一、问题重述
+% ==========================================
+\section{问题重述}
+
+\subsection{问题背景}
+【在此处描述问题的实际背景和意义。结合行业发展趋势、政策背景等进行阐述，为后续建模提供现实依据。约300-400字。】
+
+\subsection{问题重述}
+【在此处用学术语言准确重述题目给出的问题。逐问说明已知条件、求解目标和约束限制。注意不要照抄题目原文，应经过自己的理解重新表述。约400-500字。】
+
+% ==========================================
+% 二、问题分析
+% ==========================================
+\section{问题分析}
+
+\subsection{问题1分析}
+【分析问题1的核心难点、关键约束，指出解题的关键思路。说明：(1) 问题类型和复杂性 (如NP-hard)；(2) 主要挑战点；(3) 解题思路框架。约200-300字。】
+
+\subsection{问题2分析}
+【分析问题2与问题1的差异，新增约束带来的影响，以及解题策略的调整。约200-300字。】
+
+\subsection{问题3分析}
+【分析问题3的动态性特点，实时性要求和局部性策略。约200-300字。】
+
+% ==========================================
+% 三、模型假设
+% ==========================================
+\section{模型假设}
+【列出模型的假设条件，编号说明。每条假设一句话清晰表述。约5-8条假设。】
+
+\begin{enumerate}[label=\arabic*.]
+    \item 【假设1：如忽略次要因素，将问题进行合理简化】
+    \item 【假设2：如假设某参数为常数，不随时间变化】
+    \item 【假设3：如不考虑极端天气等特殊情况的影响】
+    \item 【假设4】
+    \item 【假设5】
+\end{enumerate}
+
+% ==========================================
+% 四、参数与变量说明
+% ==========================================
+\section{参数与变量说明}
+
+【将模型中使用的所有参数和决策变量以表格形式列出。参数表和变量表分列。】
+
+% --- 参数表 ---
+\begin{table}[H]
+\centering
+\caption{模型参数}
+\begin{tabular}{c|l|c}
+\toprule
+\textbf{符号} & \textbf{含义} & \textbf{单位} \\
+\midrule
+$N$ & 【含义】 & 【单位】 \\
+$c_{ij}$ & 【含义】 & 【单位】 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- 决策变量表 ---
+\begin{table}[H]
+\centering
+\caption{决策变量}
+\begin{tabular}{c|l|c}
+\toprule
+\textbf{符号} & \textbf{含义} & \textbf{类型} \\
+\midrule
+$x_{ijk}$ & 【含义】 & 0-1变量 \\
+$s_{ik}$ & 【含义】 & 连续变量 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ==========================================
+% 五、模型的建立与求解（核心章节）
+% ==========================================
+\section{模型的建立与求解}
+
+% --- 5.1 数据预处理 ---
+\subsection{数据预处理}
+
+\subsubsection{客户分布与需求特征}
+【在此描述数据来源、数据概况、预处理过程（订单聚合、异常处理、特征分析等）。用表格和图展示关键统计结果。约400-600字。】
+
+% 示例：插入图片
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=0.75\textwidth]{figure1_customer_distribution.png}
+%    \caption{客户空间分布与绿色配送区}
+%    \label{fig:customer-dist}
+%\end{figure}
+
+\subsubsection{速度时段建模}
+【如有时间相关变量，说明时段划分方法和速度模型。约200-300字。】
+
+\subsubsection{能耗建模与负载修正}
+【说明能耗计算模型，包括负载修正系数、跨时段积分方法等。约200-300字。】
+
+% --- 5.2 问题1的模型与求解 ---
+\subsection{问题1：静态场景下的车辆调度}
+
+\subsubsection{模型建立}
+
+【说明建模思路】考虑【问题背景】，建立如下数学模型：
+
+\paragraph{目标函数}
+
+\begin{equation}\label{eq:obj}
+\min Z = C_{\text{vehicle}} + C_{\text{energy}} + C_{\text{penalty}} + C_{\text{carbon}}
+\end{equation}
+
+其中：
+\begin{itemize}
+    \item $C_{\text{vehicle}}$ —— 【车辆启动成本，计算公式为 $C_{\text{vehicle}} = \sum_{k \in K} c_k^{\text{fixed}} \cdot y_{0k}$】；
+    \item $C_{\text{energy}}$ —— 【能耗成本，包括燃油费和电费】；
+    \item $C_{\text{penalty}}$ —— 【时间窗违反惩罚成本】；
+    \item $C_{\text{carbon}}$ —— 【碳排放成本（碳税）】。
+\end{itemize}
+
+\paragraph{约束条件}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item \textbf{容量约束（重量和体积）}：
+    \begin{align}
+        \sum_{i \in N} w_i \cdot y_{ik} &\leq W_k, \quad \forall k \in K \label{eq:cap-w}\\
+        \sum_{i \in N} v_i \cdot y_{ik} &\leq V_k, \quad \forall k \in K \label{eq:cap-v}
+    \end{align}
+    约束(\ref{eq:cap-w})确保每辆车的载重量不超过其额定载重，约束(\ref{eq:cap-v})确保装载体积不超过车辆容积。这两条约束是车辆路径问题的基本约束。
+
+    \item \textbf{服务完整性约束}：
+    \begin{equation}
+        \sum_{k \in K} y_{ik} = 1, \quad \forall i \in N \label{eq:service}
+    \end{equation}
+    约束(\ref{eq:service})确保每个客户节点恰好被一辆车服务一次，不允许遗漏或重复服务。
+
+    \item \textbf{路径连续性约束}：
+    \begin{align}
+        \sum_{j \in N \cup \{0\}} x_{ijk} &= y_{ik}, \quad \forall i \in N, k \in K \label{eq:flow1}\\
+        \sum_{i \in N \cup \{0\}} x_{ijk} &= y_{jk}, \quad \forall j \in N, k \in K \label{eq:flow2}
+    \end{align}
+    约束(\ref{eq:flow1})和(\ref{eq:flow2})确保每条路径是连续的——车辆进入某节点后必须从该节点离开。
+
+    \item \textbf{配送中心约束}：
+    \begin{equation}
+        \sum_{j \in N} x_{0jk} = \sum_{i \in N} x_{i0k} = 1, \quad \forall k \in K \label{eq:depot}
+    \end{equation}
+    约束(\ref{eq:depot})要求每辆车从配送中心出发，完成配送后返回配送中心。
+
+    \item \textbf{时间窗软约束}：
+    \begin{equation}
+        a_i \leq s_{ik} \leq b_i + \delta_{\text{late}}, \quad \forall i \in N, k \in K \label{eq:tw}
+    \end{equation}
+    约束(\ref{eq:tw})为时间窗软约束，允许延迟到达但产生惩罚成本。其中 $a_i$ 和 $b_i$ 分别为客户 $i$ 的最早和最晚服务时间，$\delta_{\text{late}}$ 为允许的最大延迟。早到等待成本为 $c_{\text{early}}=20$元/h，晚到惩罚成本为 $c_{\text{late}}=50$元/h。
+
+    \item \textbf{车队数量约束}：
+    \begin{equation}
+        \sum_{k \in K_f} y_{0k} \leq |K_f|, \quad \forall f \in F \label{eq:fleet}
+    \end{equation}
+    约束(\ref{eq:fleet})确保每种车型的使用数量不超过可用车辆数。
+\end{enumerate}
+
+\subsubsection{求解算法}
+
+【算法选择理由】由于问题规模较大（【具体规模】），精确算法难以在竞赛时间内求解。本文采用【算法名称】进行求解。
+
+【算法框架描述】：
+\begin{algorithm}[H]
+\caption{【算法名称】主流程}
+\label{alg:main}
+\begin{algorithmic}[1]
+\REQUIRE 【输入：初始参数、数据】
+\ENSURE 【输出：最优解】
+\STATE 生成初始解（【策略描述】）
+\STATE 初始化温度 $T \leftarrow T_0$，迭代计数器 $iter \leftarrow 0$
+\FOR{$iter = 1$ \TO $max\_iterations$}
+    \STATE 自适应选择【破坏/变异/邻域】算子
+    \STATE 执行【破坏/变异】操作，产生中间解
+    \STATE 执行【修复/交叉】操作，生成新解 $S_{\text{new}}$
+    \STATE 计算成本增量 $\Delta = \text{cost}(S_{\text{new}}) - \text{cost}(S_{\text{current}})$
+    \IF{$\Delta < 0$ \OR $\text{random}() < \exp(-\Delta / T)$}
+        \STATE $S_{\text{current}} \leftarrow S_{\text{new}}$
+        \IF{$\text{cost}(S_{\text{new}}) < \text{cost}(S_{\text{best}})$}
+            \STATE $S_{\text{best}} \leftarrow S_{\text{new}}$
+        \ENDIF
+    \ENDIF
+    \STATE 更新算子得分与权重
+    \STATE 降温 $T \leftarrow T \times \alpha$
+\ENDFOR
+\RETURN $S_{\text{best}}$
+\end{algorithmic}
+\end{algorithm}
+
+【算法关键设计】：
+\begin{enumerate}
+    \item \textbf{初始解生成}：【描述策略】
+    \item \textbf{邻域结构}：【描述破坏/修复算子的设计和数量】
+    \item \textbf{约束处理}：【描述如何处理关键约束】
+    \item \textbf{参数设置}：【列出关键参数及其取值】
+\end{enumerate}
+
+\subsubsection{求解结果}
+
+【在此展示模型求解结果，包括主要数值指标、路线统计、成本构成等。用表格和图表辅助说明。约600-800字。】
+
+% --- 示例：结果表格 ---
+%\begin{table}[H]
+%\centering
+%\caption{问题1求解结果汇总}
+%\label{tab:q1-results}
+%\begin{tabular}{l|c|c}
+%\toprule
+%\textbf{指标} & \textbf{数值} & \textbf{单位} \\
+%\midrule
+%使用车辆数 & 【】 & 辆 \\
+%运营总成本 & 【】 & 元 \\
+%能耗成本 & 【】 & 元 \\
+%碳排放总量 & 【】 & kg \\
+%\bottomrule
+%\end{tabular}
+%\end{table}
+
+% --- 5.3 问题2 ---
+\subsection{问题2：【子标题】}
+
+\subsubsection{模型建立}
+【说明问题2与问题1的差异，新增的约束和修改的模型。约300-400字。】
+
+\subsubsection{求解方法}
+【说明求解策略的调整。约300-400字。】
+
+% --- 5.4 问题3 ---
+\subsection{问题3：【子标题】}
+
+\subsubsection{【子节标题】}
+【约300-400字。】
+
+\subsubsection{求解结果}
+【约300-400字。】
+
+% ==========================================
+% 六、模型的评价与优化
+% ==========================================
+\section{模型的评价与优化}
+
+\subsection{验证方法}
+【说明如何验证模型的正确性和结果的可信度。如：小规模实例的精确求解对比、与已知最优解的比较、约束满足度检查等。约200-300字。】
+
+\subsection{敏感性分析}
+【分析关键参数（如碳税税率、速度、时间窗宽度等）变化对结果的影响。使用图表展示灵敏度。约400-500字。】
+
+% --- 示例：灵敏度分析 ---
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{figure_sensitivity.png}
+%    \caption{关键参数灵敏度分析}
+%    \label{fig:sensitivity}
+%\end{figure}
+
+\subsection{模型优点}
+\begin{enumerate}
+    \item 【优点1，需具体说明而不能泛泛而谈。如"综合考虑了车辆异构性、时变速度和软时间窗，模型具有较强的现实适用性"】
+    \item 【优点2，需配以具体数据或对比】
+    \item 【优点3】
+    \item 【优点4】
+\end{enumerate}
+
+\subsection{模型缺点}
+\begin{enumerate}
+    \item 【缺点1，诚实指出局限性，如"假设速度分布为已知的静态分布，未考虑实时交通状况的动态变化"】
+    \item 【缺点2】
+    \item 【缺点3】
+\end{enumerate}
+
+% ==========================================
+% 七、模型的应用与推广
+% ==========================================
+\section{模型的应用与推广}
+
+【约300-400字，讨论以下内容：】
+\begin{enumerate}
+    \item 模型在其他物流配送场景中的应用（如同城快递、冷链配送、应急物资调度等）
+    \item 模型在其他行业的借鉴意义（如公共交通调度、共享汽车调度等）
+    \item 需要做的调整和扩展（如加入实时交通数据、多配送中心、动态定价等）
+\end{enumerate}
+
+% ==========================================
+% 参考文献
+% ==========================================
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{ref1} 作者1, 作者2. 文章标题[J]. 期刊名, 年份, 卷(期): 页码.
+
+\bibitem{ref2} 作者. 文章标题[J]. 期刊名, 年份, 卷(期): 页码.
+
+\bibitem{ref3} 作者. 书名[M]. 出版地: 出版社, 年份.
+
+\bibitem{ref4} 作者. 文章标题[C]// 会议名称. 会议地点, 年份: 页码.
+
+\bibitem{ref5} 作者. 文章标题[J]. 期刊名, 年份, 卷(期): 页码.
+
+\end{thebibliography}
+
+% ==========================================
+% 附录
+% ==========================================
+\newpage
+\section*{附录}
+\addcontentsline{toc}{section}{附录}
+
+% --- 附录A ---
+\subsection*{附录A：【附录标题】}
+\addcontentsline{toc}{subsection}{附录A：【附录标题】}
+
+【附录正文，可包含数据表格、补充实验结果等。】
+
+% --- 附录B ---
+\subsection*{附录B：【附录标题】}
+\addcontentsline{toc}{subsection}{附录B：【附录标题】}
+
+【附录正文。】
+
+% --- 附录C：核心求解代码 ---
+\subsection*{附录C：核心求解代码}
+\addcontentsline{toc}{subsection}{附录C：核心求解代码}
+
+% 代码使用 small 字号和等宽字体
+{\small\ttfamily
+\begin{verbatim}
+# ===== 在此处粘贴核心Python代码 =====
+# 建议包含以下关键函数：
+# 1. 主求解入口
+# 2. 关键算法步骤
+# 3. 约束处理函数
+#
+# 示例：
+def solve(self, ...):
+    """主求解入口"""
+    # 初始化
+    # 迭代求解
+    # 返回最优解
+    pass
+\end{verbatim}
+}
+
+\end{document}

@@ -1,0 +1,319 @@
+\documentclass[12pt,letterpaper]{article}
+
+% ===== MCM/ICM Contest Paper Template =====
+% 美赛格式规范：
+%   - US Letter paper, 1-inch margins
+%   - Title: 14pt bold centered
+%   - Abstract/Summary: required, labeled "Summary"
+%   - Section headings: 12pt bold, numbered (1, 1.1, 1.1.1)
+%   - Body text: 12pt, 1.5 line spacing
+%   - Tables: three-line style
+%   - Figures: centered, captions below
+%   - References: [1] format
+
+% ---------- Page Setup ----------
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb,amsthm}
+
+% ---------- Graphics & Tables ----------
+\usepackage{graphicx,subfig}
+\usepackage{booktabs,multirow,array}
+\usepackage{float}
+
+% ---------- Algorithms ----------
+\usepackage{algorithm,algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+% ---------- Hyperlinks ----------
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+
+% ---------- Captions ----------
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,labelsep=quad,justification=centering}
+
+% ---------- Headers/Footers ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Team \#\textlangle Your Team Number\textrangle}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Paragraph ----------
+\usepackage{indentfirst}
+\setlength{\parindent}{0pt}           % MCM typically no indent
+\setlength{\parskip}{6pt}              % space between paragraphs
+\linespread{1.5}                       % 1.5 line spacing
+
+% ---------- Section Format ----------
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries\large}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection}{1em}{}
+
+% Numbering
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\begin{document}
+
+% ==========================================
+% Title
+% ==========================================
+\begin{center}
+{\Large\bfseries\textlangle Your Paper Title Here\textrangle}
+
+\vspace{0.3cm}
+\textlangle Date\textrangle
+\end{center}
+
+\vspace{0.5cm}
+
+% ==========================================
+% Summary (Required by MCM/ICM)
+% ==========================================
+\noindent\textbf{\large Summary}
+
+\vspace{0.3cm}
+
+\textlangle Write your summary here. The summary should be a concise description of your approach, methods, and key results. It should not exceed one page. Key elements to include:
+\begin{enumerate}
+    \item Problem background and restatement
+    \item Assumptions and justification
+    \item Model(s) developed and methods used
+    \item Key results and conclusions
+    \item Strengths and limitations
+\end{enumerate}
+\textrangle
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} keyword1; keyword2; keyword3; keyword4; keyword5
+
+\newpage
+
+% ==========================================
+% Table of Contents
+% ==========================================
+\tableofcontents
+\newpage
+
+% ==========================================
+% 1. Introduction
+% ==========================================
+\section{Introduction}
+
+\subsection{Problem Background}
+\textlangle Describe the real-world background and significance of the problem. 300--400 words.\textrangle
+
+\subsection{Problem Restatement}
+\textlangle Restate the problem in your own academic language. Clearly list the known conditions and objectives for each sub-problem. Do not copy the problem statement verbatim. 400--500 words.\textrangle
+
+\subsection{Literature Review}
+\textlangle Briefly review existing work related to this problem. Cite key references [1][2]. 200--300 words.\textrangle
+
+% ==========================================
+% 2. Assumptions and Justifications
+% ==========================================
+\section{Assumptions and Justifications}
+
+\textlangle List and justify each assumption. 6--8 assumptions typical.\textrangle
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Assumption 1:} \textlangle Description\textrangle. \textbf{Justification:} \textlangle Why this assumption is reasonable\textrangle.
+    \item \textbf{Assumption 2:} \textlangle Description\textrangle. \textbf{Justification:} \textlangle Why reasonable\textrangle.
+    \item \textbf{Assumption 3:} \textlangle Description\textrangle. \textbf{Justification:} \textlangle Why reasonable\textrangle.
+\end{enumerate}
+
+% ==========================================
+% 3. Notation and Definitions
+% ==========================================
+\section{Notation and Definitions}
+
+% Parameters table
+\begin{table}[H]
+\centering
+\caption{Model Parameters}
+\label{tab:parameters}
+\begin{tabular}{c|l|c}
+\toprule
+\textbf{Symbol} & \textbf{Description} & \textbf{Unit} \\
+\midrule
+$N$ & Number of nodes & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Decision variables table
+\begin{table}[H]
+\centering
+\caption{Decision Variables}
+\label{tab:variables}
+\begin{tabular}{c|l|c}
+\toprule
+\textbf{Symbol} & \textbf{Description} & \textbf{Type} \\
+\midrule
+$x_{ij}$ & Whether arc $(i,j)$ is selected & binary \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ==========================================
+% 4. Model Development
+% ==========================================
+\section{Model Development}
+
+\subsection{Data Preprocessing}
+\subsubsection{Data Overview}
+\textlangle Describe the data sources, scale, and key features. 200--300 words.\textrangle
+
+\subsubsection{Data Cleaning and Feature Engineering}
+\textlangle Describe preprocessing steps. 200--300 words.\textrangle
+
+\subsection{Model for Problem 1}
+
+\subsubsection{Model Formulation}
+
+\textbf{Objective Function:}
+
+Considering \textlangle relevant factors\textrangle, the objective is to minimize \textlangle description\textrangle:
+
+\begin{equation}\label{eq:objective}
+\min Z = \sum_{i \in N} \sum_{j \in N} c_{ij} x_{ij}
+\end{equation}
+
+where $c_{ij}$ denotes \textlangle explanation\textrangle, and $x_{ij}$ is \textlangle explanation\textrangle.
+
+\textbf{Constraints:}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item \textbf{Capacity Constraint}:
+    \begin{equation}\label{eq:capacity}
+        \sum_{i \in N} w_i y_{ik} \leq W_k, \quad \forall k \in K
+    \end{equation}
+    Constraint (\ref{eq:capacity}) ensures that the total load on each vehicle does not exceed its capacity. Violating this constraint would result in infeasible loading plans.
+
+    \item \textbf{Service Completeness}:
+    \begin{equation}\label{eq:service}
+        \sum_{k \in K} y_{ik} = 1, \quad \forall i \in N
+    \end{equation}
+    Constraint (\ref{eq:service}) ensures every customer is served exactly once.
+\end{enumerate}
+
+\subsubsection{Solution Algorithm}
+
+\textlangle Justify algorithm choice.\textrangle
+
+\begin{algorithm}[H]
+\caption{\textlangle Algorithm Name\textrangle}
+\label{alg:main}
+\begin{algorithmic}[1]
+\REQUIRE \textlangle Input parameters\textrangle
+\ENSURE \textlangle Output\textrangle
+\STATE Initialize solution
+\FOR{each iteration}
+    \STATE \textlangle Step description\textrangle
+\ENDFOR
+\RETURN Best solution found
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Key Design Decisions}
+\begin{enumerate}
+    \item \textbf{Initial solution:} \textlangle Strategy description\textrangle
+    \item \textbf{Neighborhood structure:} \textlangle Description\textrangle
+    \item \textbf{Parameter settings:} \textlangle Key parameters and rationale\textrangle
+\end{enumerate}
+
+\subsubsection{Results for Problem 1}
+\textlangle Present results with tables and figures.\textrangle
+
+\subsection{Model for Problem 2}
+\textlangle Same structure as Problem 1. 800--1000 words.\textrangle
+
+\subsection{Model for Problem 3}
+\textlangle Same structure as Problem 1. 800--1000 words.\textrangle
+
+% ==========================================
+% 5. Results and Discussion
+% ==========================================
+\section{Results and Discussion}
+
+\subsection{Main Results}
+\textlangle Present and interpret the main numerical results. Use tables and figures with proper references (see Figure \ref{fig:example}, Table \ref{tab:example}). 500--800 words.\textrangle
+
+\subsection{Sensitivity Analysis}
+\textlangle Analyze the sensitivity of results to key parameters. 400--500 words.\textrangle
+
+\subsection{Model Validation}
+\textlangle Describe how the model was validated. Compare with known solutions or simpler models. 200--300 words.\textrangle
+
+% ==========================================
+% 6. Strengths, Limitations, and Future Work
+% ==========================================
+\section{Strengths, Limitations, and Future Work}
+
+\subsection{Strengths}
+\begin{enumerate}
+    \item \textlangle Strength 1 with specific example\textrangle
+    \item \textlangle Strength 2 with specific example\textrangle
+    \item \textlangle Strength 3\textrangle
+\end{enumerate}
+
+\subsection{Limitations}
+\begin{enumerate}
+    \item \textlangle Limitation 1 with impact assessment\textrangle
+    \item \textlangle Limitation 2\textrangle
+\end{enumerate}
+
+\subsection{Future Work and Extensions}
+\textlangle Discuss how the model could be extended or applied to other domains. 300--400 words.\textrangle
+
+% ==========================================
+% 7. Conclusions
+% ==========================================
+\section{Conclusions}
+\textlangle Summarize the key contributions, findings, and implications. 200--300 words.\textrangle
+
+% ==========================================
+% References
+% ==========================================
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{ref1} Author1, Author2. Article Title[J]. \emph{Journal Name}, Year, Volume(Issue): Pages.
+
+\bibitem{ref2} Author. Article Title[J]. \emph{Journal Name}, Year, Volume(Issue): Pages.
+
+\bibitem{ref3} Author. \emph{Book Title}[M]. City: Publisher, Year.
+
+\bibitem{ref4} Solomon M M. Algorithms for the Vehicle Routing and Scheduling Problems with Time Window Constraints[J]. \emph{Operations Research}, 1987, 35(2): 254--265.
+
+\bibitem{ref5} Ropke S, Pisinger D. An Adaptive Large Neighborhood Search Heuristic for the Pickup and Delivery Problem with Time Windows[J]. \emph{Transportation Science}, 2006, 40(4): 455--472.
+
+\end{thebibliography}
+
+% ==========================================
+% Appendix
+% ==========================================
+\newpage
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+\subsection*{Appendix A: Parameter Data}
+\textlangle Supplementary parameter tables.\textrangle
+
+\subsection*{Appendix B: Key Code Segments}
+{\small\ttfamily
+\begin{verbatim}
+# Paste key code here
+\end{verbatim}
+}
+
+\end{document}

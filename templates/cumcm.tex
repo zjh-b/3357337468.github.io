@@ -1,0 +1,330 @@
+\documentclass[12pt,a4paper]{ctexart}
+
+% ===== 全国大学生数学建模竞赛（CUMCM）论文模板 =====
+% 国赛格式规范：
+%   - A4纸，上下左右各2.5cm
+%   - 标题：三号黑体加粗居中
+%   - 摘要：小四宋体，"摘要"二字小四黑体
+%   - 一级标题：四号黑体，数字编号(1,2,3...)
+%   - 正文：小四宋体，首行缩进2字符
+%   - 表格：三线表
+%   - 页码：底部居中，从正文第1页编起
+
+% ---------- 页面设置 ----------
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+
+% ---------- 数学与公式 ----------
+\usepackage{amsmath,amssymb,amsthm}
+
+% ---------- 图表 ----------
+\usepackage{graphicx,subfig}
+\usepackage{booktabs,multirow,array,longtable}
+\usepackage{float}
+
+% ---------- 算法伪代码 ----------
+\usepackage{algorithm,algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
+
+% ---------- 引用与链接 ----------
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+% ---------- 列表 ----------
+\usepackage{enumitem}
+
+% ---------- 图表标题 ----------
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,labelsep=quad,justification=centering}
+
+% ---------- 页眉页脚 ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\songti\zihao{5}\leftmark}     % 页眉：居中显示当前节名
+\fancyfoot[C]{\thepage}                        % 页脚：居中页码
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+% ---------- 首行缩进 ----------
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+% ---------- 行距 ----------
+\linespread{1.3}
+
+% ---------- 标题格式 ----------
+% 国赛使用数字编号：1, 1.1, 1.1.1
+\CTEXsetup[name={,},number={\arabic{section}},format={\heiti\zihao{4}\centering},aftername={}]{section}
+\CTEXsetup[name={,},number={\arabic{section}.\arabic{subsection}},format={\heiti\zihao{-4}\raggedright},aftername={}]{subsection}
+\CTEXsetup[name={,},number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},format={\heiti\zihao{-4}\raggedright},aftername={}]{subsubsection}
+
+% 图表编号按节
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+
+\begin{document}
+
+% ==========================================
+% 首页：承诺书区域（国赛特有）
+% ==========================================
+% 国赛论文首页需要包含参赛承诺书，此处仅留提示
+% 实际比赛时请使用组委会提供的模板首页
+
+\vspace*{2cm}
+\begin{center}
+{\heiti\zihao{3}\textbf{【在此处填写论文标题】}}
+
+\vspace{1.5cm}
+
+{\heiti\zihao{4}摘\quad 要}
+\end{center}
+
+\vspace{0.5cm}
+
+% --- 摘要正文：小四宋体 ---
+{
+\songti\zihao{-4}
+【在此处填写摘要正文，300-500字。】
+\begin{enumerate}
+    \item 问题背景与意义：一句话说明
+    \item 主要方法：简述采用的模型和算法
+    \item 关键结果：给出主要数值结果
+    \item 创新点：本文贡献
+\end{enumerate}
+
+\vspace{0.8cm}
+\noindent{\heiti\zihao{-4}关键词：}【关键词1】\quad 【关键词2】\quad 【关键词3】\quad 【关键词4】
+}
+
+\newpage
+
+% ==========================================
+% 正文开始
+% ==========================================
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+% ==========================================
+% 1. 问题重述
+% ==========================================
+\section{问题重述}
+
+\subsection{问题背景}
+【描述问题的实际背景和意义，约300-400字。】
+
+\subsection{问题描述}
+【用学术语言重述题目给出的问题。逐问说明已知条件、求解目标和约束。约400-500字。不要照抄原文。】
+
+% ==========================================
+% 2. 问题分析
+% ==========================================
+\section{问题分析}
+
+\subsection{问题1的分析}
+【分析核心难点、关键约束、解题思路。约200-300字。】
+
+\subsection{问题2的分析}
+【分析问题2与问题1的差异。约200-300字。】
+
+\subsection{问题3的分析}
+【分析动态特点。约200-300字。】
+
+% ==========================================
+% 3. 模型假设与符号说明
+% ==========================================
+\section{模型假设与符号说明}
+
+\subsection{模型假设}
+\begin{enumerate}[label=\arabic*.]
+    \item 【假设1】
+    \item 【假设2】
+    \item 【假设3】
+    \item 【假设4】
+    \item 【假设5】
+\end{enumerate}
+
+\subsection{符号说明}
+% 参数表
+\begin{table}[H]
+\centering
+\caption{模型参数}
+\begin{tabular}{c|l|c}
+\toprule
+\textbf{符号} & \textbf{含义} & \textbf{单位} \\
+\midrule
+$N$ & 【含义】 & 【单位】 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% 决策变量表
+\begin{table}[H]
+\centering
+\caption{决策变量}
+\begin{tabular}{c|l|c}
+\toprule
+\textbf{符号} & \textbf{含义} & \textbf{类型} \\
+\midrule
+$x_{ij}$ & 【含义】 & 0-1变量 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ==========================================
+% 4. 模型的建立与求解
+% ==========================================
+\section{模型的建立与求解}
+
+\subsection{数据预处理}
+\subsubsection{数据概况}
+【描述数据来源、规模、特征。约300-400字。】
+
+\subsubsection{数据处理}
+【缺失值处理、异常值处理、特征工程等。约200-300字。】
+
+\subsection{问题1的模型与求解}
+
+\subsubsection{模型建立}
+
+\textbf{目标函数：}
+
+考虑【相关因素】，以【目标描述】最小为目标，建立如下模型：
+
+\begin{equation}\label{eq:obj}
+\min Z = \sum_{i} \sum_{j} c_{ij} x_{ij}
+\end{equation}
+
+其中，$c_{ij}$表示【含义】，$x_{ij}$表示【含义】。
+
+\textbf{约束条件：}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item \textbf{【约束名称】}：
+    \begin{equation}\label{eq:con1}
+        \sum_{j} x_{ij} \leq a_i, \quad \forall i
+    \end{equation}
+    约束(\ref{eq:con1})确保【实际含义】。如果不满足此约束，【说明后果】。
+
+    \item \textbf{【约束名称】}：
+    \begin{equation}\label{eq:con2}
+        \sum_{i} x_{ij} \geq b_j, \quad \forall j
+    \end{equation}
+    约束(\ref{eq:con2})确保【实际含义】。
+\end{enumerate}
+
+\subsubsection{求解算法}
+
+【算法选择理由】。
+
+\begin{algorithm}[H]
+\caption{【算法名称】}
+\label{alg:1}
+\begin{algorithmic}[1]
+\REQUIRE 【输入参数】
+\ENSURE 【输出结果】
+\STATE 初始化
+\FOR{【迭代条件】}
+    \STATE 【步骤】
+\ENDFOR
+\RETURN 【结果】
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{算法关键设计：}
+\begin{enumerate}
+    \item \textbf{初始解生成}：【描述】
+    \item \textbf{邻域结构}：【描述】
+    \item \textbf{参数设置}：【描述】
+\end{enumerate}
+
+\subsubsection{求解结果}
+
+【用表格展示结果，配合图表解读分析。】
+
+\begin{table}[H]
+\centering
+\caption{问题1求解结果汇总}
+\label{tab:q1-results}
+\begin{tabular}{l|c|c}
+\toprule
+\textbf{指标} & \textbf{数值} & \textbf{单位} \\
+\midrule
+目标函数值 & 【】 & 【】 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{问题2的模型与求解}
+【结构同问题1，约800-1000字。】
+
+\subsection{问题3的模型与求解}
+【结构同问题1，约800-1000字。】
+
+% ==========================================
+% 5. 结果分析与检验
+% ==========================================
+\section{结果分析与检验}
+
+\subsection{结果分析}
+【逐项分析各问题的求解结果，配合图表。】
+
+\subsection{灵敏度分析}
+【关键参数的灵敏度分析。约400-500字。】
+
+\subsection{模型检验}
+【验证模型正确性和结果可信度的方法与结论。】
+
+% ==========================================
+% 6. 模型评价与推广
+% ==========================================
+\section{模型评价与推广}
+
+\subsection{模型优点}
+\begin{enumerate}
+    \item 【优点1】
+    \item 【优点2】
+    \item 【优点3】
+    \item 【优点4】
+\end{enumerate}
+
+\subsection{模型缺点}
+\begin{enumerate}
+    \item 【缺点1】
+    \item 【缺点2】
+    \item 【缺点3】
+\end{enumerate}
+
+\subsection{模型推广}
+【模型在其他场景的应用前景。约300字。】
+
+% ==========================================
+% 参考文献
+% ==========================================
+\newpage
+\begin{thebibliography}{99}
+\bibitem{ref1} 作者1, 作者2. 文章标题[J]. 期刊名, 年份, 卷(期): 页码.
+\bibitem{ref2} 作者. 文章标题[J]. 期刊名, 年份, 卷(期): 页码.
+\bibitem{ref3} 作者. 书名[M]. 出版地: 出版社, 年份.
+\end{thebibliography}
+
+% ==========================================
+% 附录
+% ==========================================
+\newpage
+\section*{附录}
+\addcontentsline{toc}{section}{附录}
+
+\subsection*{附录1：核心求解代码}
+{\small\ttfamily
+\begin{verbatim}
+# 在此粘贴核心代码
+\end{verbatim}
+}
+
+\subsection*{附录2：补充数据}
+【补充数据表格】
+
+\end{document}
